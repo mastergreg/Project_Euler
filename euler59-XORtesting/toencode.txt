@@ -1,0 +1,5 @@
+Hi there.
+My name is Greg.
+This is a plaintext message
+about to be encrypted using
+the XOR encryption algorithm.
