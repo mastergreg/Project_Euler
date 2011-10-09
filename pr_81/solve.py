@@ -7,7 +7,7 @@
 #
 #* Creation Date : 06-10-2011
 #
-#* Last Modified : Sat 08 Oct 2011 08:36:33 PM EEST
+#* Last Modified : Sat 08 Oct 2011 08:55:27 PM EEST
 #
 #* Created By : Greg Liras <gregliras@gmail.com>
 #
@@ -19,10 +19,10 @@ def get_input():
   f = sys.stdin
   all_ints = []
   for i in range(80):
-    line = map(int,f.readline().split(','))
+    line = map(int,f.readline().split())
     all_ints.extend(line)
-  suma = sum(all_ints)
-  print max(all_ints)*80
+  for integer in all_ints:
+    print integer
 
 
 def main():
