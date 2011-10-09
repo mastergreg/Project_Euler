@@ -6,7 +6,7 @@
 
  * Creation Date : 06-10-2011
 
- * Last Modified : Mon 10 Oct 2011 12:37:26 AM EEST
+ * Last Modified : Mon 10 Oct 2011 12:39:46 AM EEST
 
  * Created By : Greg Liras <gregliras@gmail.com>
 
@@ -14,9 +14,7 @@
 
 
 #include <iostream>
-#include <deque>
 #include <algorithm>
-#include <time.h>
 
 #define GRID_SIZE 80 
 using namespace std;
@@ -28,7 +26,6 @@ int nodes[GRID_SIZE][GRID_SIZE];
 int main()
 {
   int i,j;
-  deque<int *> myQueue,buffQueue;
   for ( i = 0 ; i < GRID_SIZE ; i++)
   {
     for ( j = 0 ; j < GRID_SIZE ; j++)
