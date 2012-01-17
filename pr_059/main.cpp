@@ -6,7 +6,7 @@
 
  * Creation Date : 14-10-2011
 
- * Last Modified : Fri 14 Oct 2011 06:45:10 AM EEST
+ * Last Modified : Fri 14 Oct 2011 07:09:47 AM EEST
 
  * Created By : Greg Liras <gregliras@gmail.com>
 
@@ -20,45 +20,56 @@
 
 using namespace std;
 
-bool accept(int *dtext,int c)
+bool accept(char c)
 {
-  return dtext[c-2]=='t' && dtext[c-1] == 'h' && dtext[c] == 'e';
+  return c == ' ' || ( c >= 97 && c <= 122) || ( c >= 65 && c <= 90);
 }
 
-bool decode(int *text,int *dtext, int key[3])
+bool decode(char *text,char *dtext, char key[3])
 {
   int i,counter=0;
   bool flag = false;
   for( i = 0 ; i < 1201 ; i ++)
   {
     dtext[i] = text[i] ^ key[i%3];
-    if (accept(dtext,i))
+    if (accept(dtext[i]))
     {
       flag = true;
+    }
+    else
+    {
+      cout << dtext[i] << endl;
+      flag = false;
+      break;
     }
     counter+=dtext[i];
   }
   if (flag)
   {
-    cout << counter << " " << key[0] << key[1] << key[2] << endl;
+    cout << endl << counter << " " << key[0] << key[1] << key[2] << endl;
   }
+  return flag;
 
 }
 
 
 int main()
 {
-  int text[1201];
-  int dtext[1201];
+  char text[1201];
+  char dtext[1201];
   char c;
-  int b,i,j,k,key[3];
+  int b;
+  int i,j,k;
+  char key[3];
   for ( i = 0 ; i < 1201 ; i++ )
   {
-    cin >> b >> c;
+    cin >> b;
+    cout << i << "\r" << flush;
     text[i]=b;
   }
   for ( i = 97 ; i <= 122 ; i++ )
   {
+    cout << i << "\r" << flush;
     for ( j = 97 ; j <= 122 ; j++ )
     {
       for ( k = 97 ; k <= 122 ; k++ )
