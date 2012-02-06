@@ -6,7 +6,7 @@
 
  * Creation Date : 14-10-2011
 
- * Last Modified : Fri 14 Oct 2011 07:09:47 AM EEST
+ * Last Modified : Mon 06 Feb 2012 10:00:07 AM EET
 
  * Created By : Greg Liras <gregliras@gmail.com>
 
@@ -64,7 +64,7 @@ int main()
   for ( i = 0 ; i < 1201 ; i++ )
   {
     cin >> b;
-    cout << i << "\r" << flush;
+    //cout << i << "\r" << flush;
     text[i]=b;
   }
   for ( i = 97 ; i <= 122 ; i++ )

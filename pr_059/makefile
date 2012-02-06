@@ -1,3 +1,3 @@
 all: main
-main: main.cpp
-	g++ main.cpp -O2 -o main -Wall -Wextra -Wuninitialized
+main: main.c
+	g++ main.c -O2 -o main -Wall -Wextra -Wuninitialized
