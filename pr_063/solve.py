@@ -7,14 +7,14 @@
 #
 #* Creation Date : 14-10-2011
 #
-#* Last Modified : Fri 14 Oct 2011 01:40:18 PM EEST
+#* Last Modified : Mon 06 Feb 2012 12:32:37 PM EET
 #
 #* Created By : Greg Liras <gregliras@gmail.com>
 #
 #_._._._._._._._._._._._._._._._._._._._._.*/
 
 
-from math import pow,log10
+from math import *
 
 
 def nth_power_n_digits(i):
@@ -27,16 +27,24 @@ def nth_power_n_digits(i):
     if (log10(t) + 1) >= i:
       return True
 
+def has_power(num):
+    i=1
+    while(int(ceil(log10(i**num)))<num and i<=10 ):
+        i=i+1
+
+    if (int(ceil(log10(i**num))) == num ):
+        return True
+    else:
+        return False
 
 
 def main():
-  counter=0
-  i=2
-  while nth_power_n_digits(i):
-    counter+=1
-    print counter,i
-    i+=1
-  print counter
+    k=0
+    for i in range(10000):
+        if(has_power(i)):
+            k=k+1
+    print k
+
 
 if __name__=="__main__":
   main()
