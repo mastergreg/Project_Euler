@@ -7,34 +7,41 @@
 #
 #* Creation Date : 10-10-2011
 #
-#* Last Modified : Mon 10 Oct 2011 08:23:03 AM EEST
+#* Last Modified : Sat 03 Mar 2012 08:12:38 PM EET
 #
 #* Created By : Greg Liras <gregliras@gmail.com>
 #
 #_._._._._._._._._._._._._._._._._._._._._.*/
 
-from fractions import Fraction , gcd
+from fractions import gcd
 
+from math import sqrt
 
-def is_resilient(num,denum):
-  return gcd(num,denum)==1
 
 def resilience(denum):
-  counter = 0
-  for i in range(1,denum):
-    if is_resilient(i,denum):
-      counter+=1
-  return Fraction(counter,denum-1)
+    old = denum
+    counter = 0
+    i = 2
+    while i < denum:
+        if denum % i == 0:
+            denum /= i
+            counter += denum
+        i+=1
+    return (old-counter,old-1)
+
+
 
 
 def main():
-  limit = Fraction(15499,94744)
-  i = 94744;
-  while True:
-    if resilience(i)<limit:
-      return 0
-    print i
-    i+=1
+  limit = (15499,94744)
+  i = 2
+  print resilience(12)
+  #while not resilience(i,limit):
+  #  (k,l) = resilience(i)
+  #  if k*l1 < l*l0:
+  #    return 0
+  #  i**=2
+  #  print i," noth"
 
 if __name__=="__main__":
   main()

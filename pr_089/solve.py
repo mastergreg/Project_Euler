@@ -7,7 +7,7 @@
 #
 #* Creation Date : 13-10-2011
 #
-#* Last Modified : Thu 13 Oct 2011 11:47:27 AM EEST
+#* Last Modified : Thu 01 Mar 2012 04:54:39 PM EET
 #
 #* Created By : Greg Liras <gregliras@gmail.com>
 #
@@ -19,43 +19,47 @@ import sys
 roman={'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000}
 roman_let=['I','V','X','L','C','D','M']
 
+def roman2int(st):
+    prVal = 0
+    b = 0
+    value = 0
+    for c in st:
+        cVal = roman[c]
+        if prVal == cVal:
+            b += cVal
+        elif cVal > prVal:
+            value += cVal - b
+            prVal = cVal
+            b = 0
+        elif cVal < prVal:
+            value += b
+            prVal = cVal
+            b = 0
+    return value+b
 
-
-def calculate(i):
-  ls = list(i)
-  ans=0
-  for l in ls:
-    ans+=roman[l]
-  return ans
-
-def calculate_R(i):
-  ans=""
-  j = 6
-  while(i>0):
-    letter = roman_let[j]
-    value = roman[letter]
-    if i>=value:
-      ans+=letter
-      i-=roman[letter]
-    else:
-      j-=1
-  return ans
-    
-
-
-
+mapping = [ ('IIIIIIIIII','X'),
+            ('IIIIIIIII','IX'),
+            ('IIIIIIII','IIX'),
+            ('IIIII'    ,'V' ),
+            ('IIII'    ,'IV'),
+            ('XXXXXXXXXX','C'),
+            ('XXXXXXXXX','XC'),
+            ('XXXXXXXX','XXC'),
+            ('XXXXX'    ,'L' ),
+            ('XXXX'    ,'XL'),
+            ('CCCCCCCCCC','M'),
+            ('CCCCCCCCC','CM'),
+            ('CCCCCCCC','CCM'),
+            ('CCCCC'    ,'D' ),
+            ('CCCC'    ,'CD')]
 def main():
-  f = sys.stdin
-  lines = []
-  for i in range(1000):
-    lines.extend(f.readline().split())
-  counter=0
-  for l in lines:
-    counter+=len(l)-len(calculate_R(calculate(l)))
-  print counter
+    f = sys.stdin
+    numbers = map(roman2int,map(lambda x:x.strip(),f.readlines()))
+    counter=0
+    print counter,numbers,len(numbers)
 
 
 
 if __name__=="__main__":
-  main()
+    main()
 
