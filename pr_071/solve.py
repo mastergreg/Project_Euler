@@ -7,7 +7,7 @@
 #
 #* Creation Date : 09-03-2012
 #
-#* Last Modified : Sat 10 Mar 2012 05:10:57 PM EET
+#* Last Modified : Sat 10 Mar 2012 05:14:13 PM EET
 #
 #* Created By : Greg Liras <gregliras@gmail.com>
 #
@@ -26,8 +26,9 @@ def main():
         for j in xrange(border,uborder):
             ndlim = Fraction(j,i)
             if ndlim < ulim:
-                dlim = max(dlim,ndlim)
-                print dlim
+                if dlim < ndlim:
+                    dlim = ndlim
+                    print dlim
     print dlim
 
 
