@@ -7,7 +7,7 @@
 #
 #* Creation Date : 14-10-2011
 #
-#* Last Modified : Sat 10 Mar 2012 10:45:57 PM EET
+#* Last Modified : Sat 10 Mar 2012 10:58:25 PM EET
 #
 #* Created By : Greg Liras <gregliras@gmail.com>
 #
@@ -18,7 +18,7 @@ from fractions import Fraction
 from math import sqrt
 from itertools import *
 
-primes = [2]
+primes = []
 
 
 def phi(n):
@@ -36,15 +36,18 @@ def isPrime(n):
     lim = sqrt(n)
     for i in primes:
         if i > lim:
-            primes.append(i)
+            primes = ifilter(lambda x: x%n == 0 and x>n,primes)
             return True
         if n%i == 0:
+            primes = ifilter(lambda x: x%n == 0 ,primes)
             return False
-    primes.append(i)
+    primes = ifilter(lambda x: x%n == 0 and x>n,primes)
     return True
+
 def main():
+    limit = 1000000
     global primes
-    limit = 100
+    primes = xrange(2,limit)
     for i in ifilter(isPrime,xrange(3,limit,2)):
         print i
 
