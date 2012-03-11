@@ -7,7 +7,7 @@
 #
 #* Creation Date : 14-10-2011
 #
-#* Last Modified : Sat 10 Mar 2012 10:58:25 PM EET
+#* Last Modified : Sun 11 Mar 2012 01:06:17 AM EET
 #
 #* Created By : Greg Liras <gregliras@gmail.com>
 #
@@ -17,24 +17,24 @@
 from fractions import Fraction
 from math import sqrt
 from itertools import *
+from bitarray import *
 
 primes = []
 
 
 def phi(n):
     global primes
+    accepted = ifilter(lambda x: n%x == 0 and x < n, islice(primes,n))
     ans = n
-    for i in primes:
-        if i > n:
-            break
-        if n%i == 0:
-            ans = (ans/i)*(i-1)
+    for i in accepted:
+        ans = (ans/i)*(i-1)
     return ans
 
 def isPrime(n):
     global primes
     lim = sqrt(n)
     for i in primes:
+        print i
         if i > lim:
             primes = ifilter(lambda x: x%n == 0 and x>n,primes)
             return True
@@ -45,7 +45,7 @@ def isPrime(n):
     return True
 
 def main():
-    limit = 1000000
+    limit = 100
     global primes
     primes = xrange(2,limit)
     for i in ifilter(isPrime,xrange(3,limit,2)):
