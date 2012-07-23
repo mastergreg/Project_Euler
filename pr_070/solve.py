@@ -1,16 +1,10 @@
 #!/usr/bin/python3
 #/* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
-#
 #* File Name : solve.py
-#
 #* Purpose :
-#
 #* Creation Date : 14-10-2011
-#
-#* Last Modified : Sat 21 Jul 2012 09:14:06 PM EEST
-#
+#* Last Modified : Sun 22 Jul 2012 11:09:08 PM EEST
 #* Created By : Greg Liras <gregliras@gmail.com>
-#
 #_._._._._._._._._._._._._._._._._._._._._.*/
 
 
