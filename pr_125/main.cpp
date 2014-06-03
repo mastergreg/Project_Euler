@@ -1,7 +1,7 @@
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 * File Name : main.cpp
 * Creation Date : 03-06-2014
-* Last Modified : Tue 03 Jun 2014 16:23:25 BST
+* Last Modified : Tue 03 Jun 2014 16:31:13 BST
 * Created By : Greg Lyras <greglyras@gmail.com>
 _._._._._._._._._._._._._._._._._._._._._.*/
 
@@ -14,20 +14,20 @@ _._._._._._._._._._._._._._._._._._._._._.*/
 
 using namespace std;
 
-int power_cache[MAX_POWER];
+int power_cache[MAX_POWER+1];
 map<int, bool> checked;
 map<int, bool> checked_small;
 
-int calc_powers(int a, int b)
+uint64_t calc_powers(int a, int b)
 {
-  int ans = 0;
+  uint64_t ans = 0;
   for(int i = a; i <= b; i++) {
     ans += power_cache[i];
   }
   return ans;
 }
 
-bool is_palindrome(int a)
+bool is_palindrome(uint64_t a)
 {
   vector<int> digits;
   while(a) {
@@ -92,7 +92,7 @@ void test_small(void)
   uint64_t count = 0;
   for(auto i = 1; i <= 40; i++) {
     for(auto j = i+1; j <= 40; j++) {
-      int n = calc_powers(i, j);
+      uint64_t n = calc_powers(i, j);
       if(n > 0 and n < 1000) {
         if(is_palindrome(n) and checked_small[n] == false) {
           count += n;
@@ -130,10 +130,9 @@ int main(int argc, char **argv)
   else {
     for(auto i = 1; i <= MAX_POWER; i++) {
       for(auto j = i+1; j <= MAX_POWER; j++) {
-        int n = calc_powers(i, j);
+        uint64_t n = calc_powers(i, j);
         if(n > 0 and n < 100000000) {
           if(is_palindrome(n) and checked[n] == false) {
-            cout << n << endl;
             count += n;
             checked[n] = true;
             cout << count << endl;
