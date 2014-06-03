@@ -1,4 +1,6 @@
-Copyright (C) 2011 Gregory <mastergreg> Lyras <gregliras@gmail.com>
+![Build Status](https://travis-ci.org/mastergreg/Project_Euler.svg?branch=master)
+
+Copyright (C) 2011 Gregory mastergreg Lyras <gregliras@gmail.com>
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
