@@ -1,7 +1,7 @@
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 * File Name : main.cpp
 * Creation Date : 03-06-2014
-* Last Modified : Tue 03 Jun 2014 04:27:49 BST
+* Last Modified : Tue 03 Jun 2014 04:33:19 BST
 * Created By : Greg Lyras <greglyras@gmail.com>
 _._._._._._._._._._._._._._._._._._._._._.*/
 
@@ -95,7 +95,7 @@ void run_tests(void)
 
 int main(int argc, char **argv)
 {
-  if(argc == 1) {
+  if(argc == 2) {
     run_tests();
   }
 

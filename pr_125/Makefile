@@ -40,6 +40,8 @@ $(TARGET): $(OBJ) $(DEPENDS)
 %.o:	%.cpp
 	$(CC) -c $(CCFLAGS) $< -o $@
 
+test:
+	./$(TARGET) test
 
 .PHONY:	clean all indent tags
 clean:
