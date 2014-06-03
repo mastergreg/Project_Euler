@@ -11,8 +11,8 @@ ifeq ($(DEBUG),"y")
 	CCFLAGS += -DSET_DEBUG=1
 	CCFLAGS += -g -O0 -Werror -Wall -Wextra -Wuninitialized
 
-	#CCFLAGS += -ggdb -O0 -Wunused-result -Wall -Wextra -Wuninitialized
-	#CCFLAGS += -Wall -Wextra -pedantic -Wbad-function-cast \
+#CCFLAGS += -ggdb -O0 -Wunused-result -Wall -Wextra -Wuninitialized
+#CCFLAGS += -Wall -Wextra -pedantic -Wbad-function-cast \
 	#	   -Wstrict-prototypes -Wold-style-definition \
 	#	   -Wmissing-prototypes -Wmissing-declarations -Wconversion \
 	#	   -Wfloat-equal -Wformat=2 -Winit-self -Winline \

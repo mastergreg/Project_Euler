@@ -27,7 +27,7 @@ CCFLAGS += -O$(OPT) -Wextra -Wall
 
 CCFILES += $(wildcard *.c)
 OBJ +=  $(patsubst %.c,%.o,$(CCFILES))
-DEPENDS += $(wildcard *.h) 
+DEPENDS += $(wildcard *.h)
 
 
 all: $(TARGET)
@@ -44,3 +44,5 @@ clean:
 	rm -f $(OBJ) $(TARGET)
 indent:
 	astyle --style=bsd $(CCFILES)
+test:
+	@echo "Dummy"

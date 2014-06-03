@@ -2,4 +2,4 @@ language: cpp
 compiler:
   - gcc
 
-script: cd ./pr_125/ && make && make test
+script: ./run_tests.sh
