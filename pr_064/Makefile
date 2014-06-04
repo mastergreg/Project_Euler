@@ -48,3 +48,6 @@ indent:
 	astyle --style=linux $(CCFILES) $(DEPENDS)
 tags:
 	ctags -R *
+
+test:
+	@echo Dummy
