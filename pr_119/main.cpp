@@ -1,7 +1,7 @@
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 * File Name : main.cpp
 * Creation Date : 10-05-2014
-* Last Modified : Fri 06 Jun 2014 20:25:23 BST
+* Last Modified : Fri 06 Jun 2014 09:54:00 PM BST
 * Created By : Greg Lyras <greglyras@gmail.com>
 _._._._._._._._._._._._._._._._._._._._._.*/
 #include <iostream>
@@ -12,13 +12,35 @@ _._._._._._._._._._._._._._._._._._._._._.*/
 #include <iterator>
 #include <cmath>
 #include <cstring>
+#include <gmp.h>
 
 #include "test.h"
 
-#define MAX_POW 20
-#define MAX_TEST 100000
+#define MAX_POW 64
+#define MAX_TEST 100000000
 
 using namespace std;
+
+char *my_powl(uint64_t a, uint32_t i)
+{
+  mpz_t rop;
+  mpz_init(rop);
+  mpz_ui_pow_ui(rop, a, i);
+  char *ans = mpz_get_str(NULL, 10, rop);
+  mpz_clear(rop);
+  return ans;
+}
+
+uint64_t digits_sum(char *a)
+{
+  uint64_t sum;
+  sum = 0;
+  while(*a != '\0') {
+    sum += *a - '0';
+    a++;
+  }
+  return sum;
+}
 
 uint64_t digits_sum(uint64_t a)
 {
@@ -28,10 +50,9 @@ uint64_t digits_sum(uint64_t a)
     digits.push_back(a % 10);
     a /= 10;
   }
-
   sum = 0;
   for(auto i = digits.cbegin(); i != digits.cend(); i++) {
-    sum+= *i;
+    sum += *i;
   }
   return sum;
 }
@@ -39,8 +60,9 @@ uint64_t digits_sum(uint64_t a)
 int accept(uint64_t a)
 {
   for(auto i = 2; i < MAX_POW; i++) {
-    uint64_t p = pow(a, i);
+    char *p = my_powl(a, i);
     uint64_t d = digits_sum(p);
+    delete p;
     if(a == d) {
       return i;
     }
@@ -56,11 +78,11 @@ int main(int argc, char **argv)
   }
 
   auto count = 0;
-  for(auto i = 2; count < 30 and i < MAX_TEST; i++) {
-    auto a = accept(i);
-    if(a != 0) {
+  for(auto i = 2; count < 1000 and i < MAX_TEST; i++) {
+    auto p = accept(i);
+    if(p != 0) {
       count++;
-      cout << count << ": " << i << " to the " << a << " = " << pow(i, a) << endl;
+      cout << "a[" << count << "]: " << i << "^" << p << " = " << my_powl(i, p) << endl;
     }
   }
 

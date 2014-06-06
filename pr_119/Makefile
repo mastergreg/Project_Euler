@@ -1,6 +1,7 @@
 TARGET = main
 CXXFLAGS += -march=native -std=c++11
 CXXFLAGS += -Wno-variadic-macros
+LDFLAGS += -lgmp
 OPT = 3
 
 DEBUG ?= "n"
@@ -34,7 +35,7 @@ DEPENDS += $(wildcard *.h)
 all: $(TARGET)
 
 $(TARGET): $(OBJ) $(DEPENDS)
-	$(CXX) $(OBJ) -o $(TARGET)
+	$(CXX) $(OBJ) -o $(TARGET) $(LDFLAGS)
 
 %.o:	%.cpp
 	$(CXX) -c $(CXXFLAGS) $< -o $@
