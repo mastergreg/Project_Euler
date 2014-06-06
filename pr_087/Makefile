@@ -1,5 +1,5 @@
 TARGET = main
-CC = g++
+CC = clang++
 CCFLAGS += -march=native -std=c++11
 CCFLAGS += -Wno-variadic-macros
 OPT = 3
@@ -24,7 +24,7 @@ ifeq ($(DEBUG),"y")
 	#	   -Wno-unused-parameter -Wno-variadic-macros
 else
 	CCFLAGS += -DSET_DEBUG=0
-	CCFLAGS += -O$(OPT) -s -Werror -Wall
+	CCFLAGS += -O$(OPT) -Werror -Wall
 endif
 
 CCFILES += $(wildcard *.cpp)
