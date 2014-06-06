@@ -48,5 +48,5 @@ indent:
 	astyle --style=linux $(CCFILES) $(DEPENDS)
 tags:
 	ctags -R *
-test:
-	@echo Dummy
+test:	$(TARGET)
+	./$(TARGET) test
