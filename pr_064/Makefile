@@ -49,5 +49,5 @@ indent:
 tags:
 	ctags -R *
 
-test:
+test:	$(TARGET)
 	@echo Dummy

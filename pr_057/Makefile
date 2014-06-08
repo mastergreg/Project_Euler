@@ -4,5 +4,5 @@ main.exec: main.exec.cpp fraction.o
 	fraction: fraction.cpp fraction.h
 	g++ fraction.cpp -c -O2
 
-test:
+test:	$(TARGET)
 				@echo "Dummy"

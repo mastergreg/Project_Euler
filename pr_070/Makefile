@@ -44,5 +44,5 @@ clean:
 	rm -f $(OBJ) $(TARGET)
 indent:
 	astyle --style=bsd $(CCFILES)
-test:
+test:	$(TARGET)
 	@echo "Dummy"
