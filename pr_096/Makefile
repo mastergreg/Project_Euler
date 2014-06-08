@@ -1,5 +1,5 @@
 TARGET = main.exec
-CC = g++
+CC = clang++
 CCFLAGS += -march=native -std=c++11
 CCFLAGS += -Wno-variadic-macros
 OPT = 3
@@ -9,7 +9,7 @@ DEBUG ?= "n"
 ifeq ($(DEBUG),"y")
 	LDFLAGS += -lfence
 	CCFLAGS += -DSET_DEBUG=1
-	CCFLAGS += -g -O0 -Werror -Wall -Wextra -Wuninitialized
+	CCFLAGS += -clang -O0 -Werror -Wall -Wextra -Wuninitialized
 
 	#CCFLAGS += -ggdb -O0 -Wunused-result -Wall -Wextra -Wuninitialized
 	#CCFLAGS += -Wall -Wextra -pedantic -Wbad-function-cast \
@@ -24,7 +24,7 @@ ifeq ($(DEBUG),"y")
 	#	   -Wno-unused-parameter -Wno-variadic-macros
 else
 	CCFLAGS += -DSET_DEBUG=0
-	CCFLAGS += -O$(OPT) -s -Werror -Wall
+	CCFLAGS += -O$(OPT) -Werror -Wall
 endif
 
 CCFILES += $(wildcard *.cpp)

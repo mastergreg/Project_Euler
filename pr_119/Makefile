@@ -9,7 +9,7 @@ DEBUG ?= "n"
 ifeq ($(DEBUG),"y")
 	LDFLAGS += -lfence
 	CXXFLAGS += -DSET_DEBUG=1
-	CXXFLAGS += -g -O0 -Werror -Wall -Wextra -Wuninitialized
+	CXXFLAGS += -clang -O0 -Werror -Wall -Wextra -Wuninitialized
 
 	#CXXFLAGS += -ggdb -O0 -Wunused-result -Wall -Wextra -Wuninitialized
 	#CXXFLAGS += -Wall -Wextra -pedantic -Wbad-function-cast \
