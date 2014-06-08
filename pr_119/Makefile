@@ -1,4 +1,4 @@
-TARGET = main
+TARGET = main.exec.exec
 CXXFLAGS += -march=native -std=c++11
 CXXFLAGS += -Wno-variadic-macros
 LDFLAGS += -lgmp

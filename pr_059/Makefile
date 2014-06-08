@@ -1,5 +1,5 @@
-all: main
-main: main.c
-	g++ main.c -O2 -o main -Wall -Wextra -Wuninitialized
+all: main.exec
+main.exec: main.exec.c
+	g++ main.exec.c -O2 -o main.exec -Wall -Wextra -Wuninitialized
 test:
 	@echo "Dummy"

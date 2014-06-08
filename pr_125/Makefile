@@ -1,4 +1,4 @@
-TARGET = main
+TARGET = main.exec
 CC = g++
 CCFLAGS += -march=native -std=c++11
 CCFLAGS += -Wno-variadic-macros
@@ -40,7 +40,7 @@ $(TARGET): $(OBJ) $(DEPENDS)
 %.o:	%.cpp
 	$(CC) -c $(CCFLAGS) $< -o $@
 
-test:
+test:	$(TARGET)
 	./$(TARGET) test
 
 .PHONY:	clean all indent tags

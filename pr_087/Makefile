@@ -1,4 +1,4 @@
-TARGET = main
+TARGET = main.exec
 CXX = clang++
 CXXFLAGS += -march=native -std=c++11
 CXXFLAGS += -Wno-variadic-macros

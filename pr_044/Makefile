@@ -1,6 +1,6 @@
-all: main
+all: main.exec
 
-main: main.cpp
-	g++ main.cpp -o main -lm -O3
+main.exec: main.exec.cpp
+	g++ main.exec.cpp -o main.exec -lm -O3
 test:
 				@echo "Dummy"

@@ -1,4 +1,4 @@
-TARGET = main
+TARGET = main.exec
 CC = g++
 CCFLAGS += -march=native -std=c++11
 CCFLAGS += -Wno-variadic-macros

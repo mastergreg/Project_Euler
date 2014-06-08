@@ -16,7 +16,7 @@
 #spell:
 #	aspell -l el_gr --ignore-case=true -c $(TARGET).tex
 #TO BE USED WITH LATEX
-TARGET = main
+TARGET = main.exec
 CC = gcc
 CCFLAGS +=
 LDFLAGS += -lm
