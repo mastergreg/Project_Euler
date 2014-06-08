@@ -1,7 +1,7 @@
 /* -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
 * File Name : main.cpp
 * Creation Date : 10-05-2014
-* Last Modified : Fri 06 Jun 2014 09:54:00 PM BST
+* Last Modified : Sun 08 Jun 2014 00:43:04 BST
 * Created By : Greg Lyras <greglyras@gmail.com>
 _._._._._._._._._._._._._._._._._._._._._.*/
 #include <iostream>
@@ -16,8 +16,9 @@ _._._._._._._._._._._._._._._._._._._._._.*/
 
 #include "test.h"
 
-#define MAX_POW 64
-#define MAX_TEST 100000000
+#define MAX_N 256
+#define MAX_POW MAX_N
+#define MAX_TEST MAX_N
 
 using namespace std;
 
@@ -77,12 +78,10 @@ int main(int argc, char **argv)
     exit(EXIT_SUCCESS);
   }
 
-  auto count = 0;
-  for(auto i = 2; count < 1000 and i < MAX_TEST; i++) {
+  for(auto i = 2; i < MAX_TEST; i++) {
     auto p = accept(i);
     if(p != 0) {
-      count++;
-      cout << "a[" << count << "]: " << i << "^" << p << " = " << my_powl(i, p) << endl;
+      cout << i << "^" << p << " = " << my_powl(i, p) << endl;
     }
   }
 
